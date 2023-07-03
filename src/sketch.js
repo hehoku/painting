@@ -1,37 +1,12 @@
-// const width = 400;
-// const height = 400;
-
-// function setup() {
-//   createCanvas(width, height);
-// }
-
-// function draw() {
-//   background(222);
-
-//   fill("#fdfde6");
-//   triangle(
-//     width / 2,
-//     height / 4,
-//     width / 4,
-//     (height * 3) / 4,
-//     (width * 3) / 4,
-//     (height * 3) / 4
-//   );
-
-//   fill("#008080");
-//   ellipse(width / 2, height / 2, 100, 100);
-
-//   fill("#fdfde6");
-//   triangle(156.7, 175, 243.3, 175, 200, 250);
-// }
+const width = 400;
+const height = 400;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(width, height);
   background(220);
 }
 
 function draw() {
-  background(220);
   translate(width / 2, height / 2); // 将画布的原点移到中心
 
   // 画大的等边三角形
@@ -51,13 +26,13 @@ function draw() {
 
   // 画小的等边三角形 内切于圆
   // 画等边三角形
-  sideLength = radius * sqrt(3);
-  h = (sideLength * sqrt(3)) / 2; // 大的等边三角形高度
+  let smallSideLength = radius * sqrt(3);
+  h = (smallSideLength * sqrt(3)) / 2; // 大的等边三角形高度
   stroke(0);
   noFill();
   beginShape();
-  vertex(-sideLength / 2, h / 2 + h / 6);
-  vertex(sideLength / 2, h / 2 + h / 6);
+  vertex(-smallSideLength / 2, h / 2 + h / 6);
+  vertex(smallSideLength / 2, h / 2 + h / 6);
   vertex(0, -h / 2 + h / 6);
   endShape(CLOSE);
 }
