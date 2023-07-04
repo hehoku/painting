@@ -6,13 +6,32 @@ function setup() {
   background(220);
 }
 
+function getCurrentTime() {
+  const now = new Date();
+  const h = now.getHours();
+  const m = now.getMinutes();
+  const s = now.getSeconds();
+  return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:${s
+    .toString()
+    .padStart(2, "0")}`;
+}
+
 function draw() {
+  clear();
+
+  // 保存画布状态
+  push();
+
   translate(width / 2, height / 2); // 将画布的原点移到中心
 
   // 画大的等边三角形
   let sideLength = 200;
   let h = (sideLength * sqrt(3)) / 2; // 大的等边三角形高度
-  stroke(0);
+  
+  // 使用随机颜色
+  let colors = ["red", "yellow", "blue"];
+  stroke(random(colors));
+
   noFill();
   beginShape();
   vertex(-sideLength / 2, h / 2);
@@ -28,11 +47,18 @@ function draw() {
   // 画等边三角形
   let smallSideLength = radius * sqrt(3);
   h = (smallSideLength * sqrt(3)) / 2; // 大的等边三角形高度
-  stroke(0);
   noFill();
   beginShape();
   vertex(-smallSideLength / 2, h / 2 + h / 6);
   vertex(smallSideLength / 2, h / 2 + h / 6);
   vertex(0, -h / 2 + h / 6);
   endShape(CLOSE);
+
+  // 恢复画布状态 指坐标系
+  pop();
+
+  textSize(18);
+  text(getCurrentTime().toString(), 10, 30);
+  textAlign(BOTTOM, CENTER);
+  fill(0, 135, 255);
 }
