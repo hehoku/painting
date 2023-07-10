@@ -1,9 +1,9 @@
-const width = 400;
-const height = 400;
+const width = 800;
+const height = 800;
 
 function setup() {
   createCanvas(width, height);
-  background(220);
+  frameRate(1);
 }
 
 function getCurrentTime() {
@@ -18,6 +18,21 @@ function getCurrentTime() {
 
 function draw() {
   clear();
+  background(220);
+
+  let flowerX = random(0, width);
+  let flowerY = random(0, height);
+  let petalSize = random(25, 150);
+  let petalDistance = petalSize / 2;
+
+  fill("#ff8000");
+  ellipse(flowerX - petalDistance, flowerY - petalDistance, petalSize);
+  ellipse(flowerX + petalDistance, flowerY - petalDistance, petalSize);
+  ellipse(flowerX - petalDistance, flowerY + petalDistance, petalSize);
+  ellipse(flowerX + petalDistance, flowerY + petalDistance, petalSize);
+
+  fill("#ff0000");
+  ellipse(flowerX, flowerY, petalSize);
 
   // 保存画布状态
   push();
@@ -27,7 +42,7 @@ function draw() {
   // 画大的等边三角形
   let sideLength = 200;
   let h = (sideLength * sqrt(3)) / 2; // 大的等边三角形高度
-  
+
   // 使用随机颜色
   let colors = ["red", "yellow", "blue"];
   stroke(random(colors));
