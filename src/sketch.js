@@ -1,6 +1,3 @@
-const width = 600;
-const height = 600;
-
 function setup() {
   createCanvas(width, height);
   frameRate(1);
