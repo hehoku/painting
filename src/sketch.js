@@ -1,5 +1,5 @@
-const width = 800;
-const height = 800;
+const width = 600;
+const height = 600;
 
 function setup() {
   createCanvas(width, height);
@@ -16,13 +16,7 @@ function getCurrentTime() {
     .padStart(2, "0")}`;
 }
 
-function draw() {
-  clear();
-  background(220);
-
-  let flowerX = random(0, width);
-  let flowerY = random(0, height);
-  let petalSize = random(25, 150);
+function drawFlower(flowerX, flowerY, petalSize) {
   let petalDistance = petalSize / 2;
 
   fill("#ff8000");
@@ -33,6 +27,17 @@ function draw() {
 
   fill("#ff0000");
   ellipse(flowerX, flowerY, petalSize);
+}
+
+function draw() {
+  clear();
+  background(220);
+
+  let flowerX = random(0, width);
+  let flowerY = random(0, height);
+  let petalSize = random(25, 150);
+
+  drawFlower(flowerX, flowerY, petalSize);
 
   // 保存画布状态
   push();
