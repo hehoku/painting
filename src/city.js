@@ -7,8 +7,9 @@ function draw() {
   clear();
   background("#dcdcdc");
 
-  drawHouse(width / 2, height / 2, 50, "blue");
-  drawHouse(100, 100, 80, "red");
+  drawBlock(0, 0, 200, 200);
+  drawBlock(200, 0, 200, 200);
+  drawBlock(0, 200, 200, 200);
 }
 
 function drawHouse(x, y, size, color) {
@@ -28,4 +29,31 @@ function drawHouse(x, y, size, color) {
   // 门
   fill(color);
   rect(x, y + (3 / 4) * size, size / 4, size / 2);
+}
+
+function drawBlock(blockX, blockY, blockWidth, blockHeight) {
+  drawHouse(
+    blockX + blockWidth * 0.3,
+    blockY + blockHeight * 0.3,
+    blockWidth * 0.3,
+    "blue"
+  );
+  drawHouse(
+    blockX + blockWidth * 0.8,
+    blockY + blockHeight * 0.3,
+    blockWidth * 0.3,
+    "#8b4513"
+  );
+  drawHouse(
+    blockX + blockWidth * 0.3,
+    blockY + blockHeight * 0.8,
+    blockWidth * 0.3,
+    "#2661c6"
+  );
+  drawHouse(
+    blockX + blockWidth * 0.8,
+    blockY + blockHeight * 0.8,
+    blockWidth * 0.3,
+    "red"
+  );
 }
